@@ -25,9 +25,16 @@ Cashier Risk Monitor for the Odoo Point of Sale: when a session closes, its cash
 
 ## Installation
 
-1. Put this repository (branch matching your Odoo version) in your addons path as a folder named `pos_cashier_risk_audit`, e.g. on Odoo.sh:
+The module lives in the `pos_cashier_risk_audit/` folder of this repository (the layout used by apps.odoo.com).
+
+1. Clone the branch matching your Odoo version and add the repository folder to your `addons_path`:
    ```bash
-   git submodule add -b 17.0 https://github.com/ibrahim77818/pos_cashier_risk_audit.git pos_cashier_risk_audit
+   git clone -b 17.0 https://github.com/ibrahim77818/pos_cashier_risk_audit.git
+   # addons_path = ...,/path/to/pos_cashier_risk_audit
+   ```
+   On Odoo.sh, add it as a submodule; Odoo.sh adds submodule folders to the addons path automatically:
+   ```bash
+   git submodule add -b 17.0 https://github.com/ibrahim77818/pos_cashier_risk_audit.git pos_cashier_risk_audit_repo
    ```
 2. Update the apps list and install **POS Cashier Risk Audit** (depends on `point_of_sale` and `hr`).
 3. Point of Sale › Configuration › Settings › **Cashier Risk Monitor**: enable it for a POS and set the thresholds.
