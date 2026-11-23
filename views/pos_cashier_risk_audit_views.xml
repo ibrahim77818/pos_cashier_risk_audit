@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List -->
+    <record id="view_pos_cashier_risk_audit_tree" model="ir.ui.view">
+        <field name="name">pos.cashier.risk.audit.tree</field>
+        <field name="model">pos.cashier.risk.audit</field>
+        <field name="arch" type="xml">
+            <tree string="Cashier Risk Audit" create="0" delete="0" sample="1"
+                  decoration-warning="decision == 'pending'"
+                  decoration-danger="decision == 'violation'"
+                  decoration-success="decision == 'accepted'">
+                <header>
+                    <button name="action_open_accept_wizard" type="object" string="Accept"
+                            groups="point_of_sale.group_pos_manager"/>
+                    <button name="action_open_violation_wizard" type="object" string="Log as Violation"
+                            groups="point_of_sale.group_pos_manager"/>
+                </header>
+                <field name="name"/>
+                <field name="evaluation_date"/>
+                <field name="config_id"/>
+                <field name="session_id"/>
+                <field name="employee_id"/>
+                <field name="user_id" optional="hide"/>
+                <field name="rule"/>
+                <field name="rule_kind" optional="hide"/>
+                <field name="threshold"/>
+                <field name="actual_value"/>
+                <field name="variance_pct" optional="show"/>
+                <field name="breach_amount" sum="Total Breach Amount"/>
+                <field name="allowed_amount" optional="hide"/>
+                <field name="variance_amount" sum="Total Over Threshold"/>
+                <field name="session_breach_count" optional="hide"/>
+                <field name="decision" widget="badge"
+                       decoration-warning="decision == 'pending'"
+                       decoration-danger="decision == 'violation'"
+                       decoration-success="decision == 'accepted'"/>
+                <field name="decision_user_id" optional="hide"/>
+                <field name="decision_date" optional="hide"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                <field name="currency_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_pos_cashier_risk_audit_form" model="ir.ui.view">
+        <field name="name">pos.cashier.risk.audit.form</field>
+        <field name="model">pos.cashier.risk.audit</field>
+        <field name="arch" type="xml">
+            <form string="Cashier Risk Audit" create="0" delete="0" duplicate="0">
+                <header>
+                    <button name="action_open_accept_wizard" type="object" string="Accept"
+                            class="btn-primary" groups="point_of_sale.group_pos_manager"
+                            invisible="decision != 'pending'"/>
+                    <button name="action_open_violation_wizard" type="object" string="Log as Violation"
+                            class="btn-danger" groups="point_of_sale.group_pos_manager"
+                            invisible="decision != 'pending'"/>
+                    <button name="action_reset_to_pending" type="object" string="Reopen Review"
+                            groups="base.group_system"
+                            confirm="Reopen this decided breach for a new review?"
+                            invisible="decision == 'pending'"/>
+                    <field name="decision" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_session" type="object" class="oe_stat_button"
+                                icon="fa-desktop" string="Session"/>
+                    </div>
+                    <widget name="web_ribbon" title="Violation" bg_color="bg-danger"
+                            invisible="decision != 'violation'"/>
+                    <widget name="web_ribbon" title="Accepted" bg_color="bg-success"
+                            invisible="decision != 'accepted'"/>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                        <h3><field name="rule"/></h3>
+                    </div>
+                    <group>
+                        <group string="Session">
+                            <field name="session_id"/>
+                            <field name="config_id"/>
+                            <field name="session_start_at"/>
+                            <field name="session_stop_at"/>
+                            <field name="evaluation_date"/>
+                            <field name="order_count"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="rule_kind" invisible="1"/>
+                        </group>
+                        <group string="Responsibility">
+                            <field name="employee_id"/>
+                            <field name="user_id"/>
+                            <field name="cashier_employee_ids" widget="many2many_tags"/>
+                            <field name="session_breach_count"/>
+                        </group>
+                        <group string="Threshold vs. Actual">
+                            <label for="threshold"/>
+                            <div class="o_row">
+                                <field name="threshold"/>
+                                <span invisible="rule_kind != 'percent'">%</span>
+                            </div>
+                            <label for="actual_value"/>
+                            <div class="o_row">
+                                <field name="actual_value"/>
+                                <span invisible="rule_kind != 'percent'">%</span>
+                            </div>
+                            <label for="variance_pct"/>
+                            <div class="o_row">
+                                <field name="variance_pct"/>
+                                <span>%</span>
+                            </div>
+                            <field name="zero_sales" invisible="rule_kind != 'percent'"/>
+                        </group>
+                        <group string="Amounts">
+                            <field name="breach_amount"/>
+                            <field name="base_amount" invisible="rule_kind != 'percent'"/>
+                            <field name="allowed_amount"/>
+                            <field name="variance_amount"/>
+                        </group>
+                        <group string="Cash Count" invisible="not expected_cash and not counted_cash">
+                            <field name="expected_cash"/>
+                            <field name="counted_cash"/>
+                            <field name="cash_difference"/>
+                        </group>
+                        <group string="Admin Decision">
+                            <field name="decision_user_id"/>
+                            <field name="decision_date"/>
+                        </group>
+                    </group>
+                    <group string="Breach Explanation">
+                        <field name="breach_explanation" nolabel="1" colspan="2"/>
+                    </group>
+                    <group string="Review Notes">
+                        <field name="review_notes" nolabel="1" colspan="2"
+                               placeholder="Manager review notes..."/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Pivot -->
+    <record id="view_pos_cashier_risk_audit_pivot" model="ir.ui.view">
+        <field name="name">pos.cashier.risk.audit.pivot</field>
+        <field name="model">pos.cashier.risk.audit</field>
+        <field name="arch" type="xml">
+            <pivot string="Cashier Risk Audit" sample="1">
+                <field name="employee_id" type="row"/>
+                <field name="rule" type="col"/>
+                <field name="breach_amount" type="measure"/>
+                <field name="variance_amount" type="measure"/>
+                <field name="violation_count" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Search -->
+    <record id="view_pos_cashier_risk_audit_search" model="ir.ui.view">
+        <field name="name">pos.cashier.risk.audit.search</field>
+        <field name="model">pos.cashier.risk.audit</field>
+        <field name="arch" type="xml">
+            <search string="Cashier Risk Audit">
+                <field name="name"/>
+                <field name="session_id"/>
+                <field name="config_id"/>
+                <field name="employee_id"/>
+                <field name="user_id"/>
+                <field name="decision_user_id"/>
+                <filter string="Pending Review" name="filter_pending" domain="[('decision', '=', 'pending')]"/>
+                <filter string="Accepted" name="filter_accepted" domain="[('decision', '=', 'accepted')]"/>
+                <filter string="Violations" name="filter_violation" domain="[('decision', '=', 'violation')]"/>
+                <separator/>
+                <filter string="Cash Difference" name="filter_rule_cash_difference" domain="[('rule', '=', 'cash_difference')]"/>
+                <filter string="Refunds" name="filter_rule_refund" domain="[('rule', '=', 'refund')]"/>
+                <filter string="Discounts" name="filter_rule_discount" domain="[('rule', '=', 'discount')]"/>
+                <filter string="Cash Out" name="filter_rule_cash_out" domain="[('rule', '=', 'cash_out')]"/>
+                <separator/>
+                <filter string="Multi-Rule Sessions" name="filter_multi_rule" domain="[('session_breach_count', '>', 1)]"/>
+                <filter string="No Sales Base" name="filter_zero_sales" domain="[('zero_sales', '=', True)]"/>
+                <separator/>
+                <filter string="Evaluation Date" name="filter_evaluation_date" date="evaluation_date"/>
+                <group expand="0" string="Group By">
+                    <filter string="Session" name="group_session" context="{'group_by': 'session_id'}"/>
+                    <filter string="Point of Sale" name="group_config" context="{'group_by': 'config_id'}"/>
+                    <filter string="Responsible Employee" name="group_employee" context="{'group_by': 'employee_id'}"/>
+                    <filter string="Breach Rule" name="group_rule" context="{'group_by': 'rule'}"/>
+                    <filter string="Admin Decision" name="group_decision" context="{'group_by': 'decision'}"/>
+                    <filter string="Decided By" name="group_decision_user" context="{'group_by': 'decision_user_id'}"/>
+                    <filter string="Evaluation Month" name="group_evaluation_month" context="{'group_by': 'evaluation_date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action & menu -->
+    <record id="action_pos_cashier_risk_audit" model="ir.actions.act_window">
+        <field name="name">Cashier Risk Audit</field>
+        <field name="res_model">pos.cashier.risk.audit</field>
+        <field name="view_mode">tree,pivot,form</field>
+        <field name="search_view_id" ref="view_pos_cashier_risk_audit_search"/>
+        <field name="context">{'create': False}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No cashier risk breach yet</p>
+            <p>Enable the Cashier Risk Monitor on a Point of Sale. Every threshold breached when a session closes is logged here for an Accept or Violation decision.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_pos_cashier_risk_audit"
+              name="Cashier Risk Audit"
+              parent="point_of_sale.menu_point_rep"
+              action="action_pos_cashier_risk_audit"
+              groups="point_of_sale.group_pos_manager"
+              sequence="50"/>
+</odoo>

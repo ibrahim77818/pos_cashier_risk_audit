@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pos_cashier_risk_audit_manager,pos.cashier.risk.audit manager,model_pos_cashier_risk_audit,point_of_sale.group_pos_manager,1,1,0,0
+access_pos_cashier_risk_audit_system,pos.cashier.risk.audit system,model_pos_cashier_risk_audit,base.group_system,1,1,1,1
+access_pos_cashier_risk_decision_wizard_manager,pos.cashier.risk.decision.wizard manager,model_pos_cashier_risk_decision_wizard,point_of_sale.group_pos_manager,1,1,1,1
