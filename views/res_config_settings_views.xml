@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_cashier_risk" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.pos.cashier.risk</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@data-key='point_of_sale']" position="inside">
+                <h2>Cashier Risk Monitor</h2>
+                <div class="row mt16 o_settings_container" id="pos_cashier_risk_monitor_section">
+                    <div class="col-12 col-lg-6 o_setting_box" id="pos_crm_enabled_setting">
+                        <div class="o_setting_left_pane">
+                            <field name="pos_crm_enabled"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="pos_crm_enabled"/>
+                            <div class="text-muted">
+                                Check cashier risk thresholds when a session of this Point of Sale closes and log every breach for manager review.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="pos_crm_thresholds_setting"
+                         attrs="{'invisible': [('pos_crm_enabled', '=', False)]}">
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Risk Thresholds</span>
+                            <div class="text-muted">
+                                A breach is logged when the session value is above a threshold. Set a threshold to 0 to disable its rule.
+                            </div>
+                            <div class="content-group mt16">
+                                <div class="row mt8">
+                                    <label for="pos_crm_cash_diff_threshold" class="col-lg-7 o_light_label"/>
+                                    <field name="pos_crm_cash_diff_threshold" class="col-lg-4"/>
+                                </div>
+                                <div class="row mt8">
+                                    <label for="pos_crm_refund_pct_threshold" class="col-lg-7 o_light_label"/>
+                                    <field name="pos_crm_refund_pct_threshold" class="col-lg-3"/>
+                                    <span class="col-auto">%</span>
+                                </div>
+                                <div class="row mt8">
+                                    <label for="pos_crm_discount_pct_threshold" class="col-lg-7 o_light_label"/>
+                                    <field name="pos_crm_discount_pct_threshold" class="col-lg-3"/>
+                                    <span class="col-auto">%</span>
+                                </div>
+                                <div class="row mt8">
+                                    <label for="pos_crm_cash_out_threshold" class="col-lg-7 o_light_label"/>
+                                    <field name="pos_crm_cash_out_threshold" class="col-lg-4"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

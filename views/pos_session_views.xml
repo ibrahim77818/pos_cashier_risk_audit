@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_session_form_cashier_risk" model="ir.ui.view">
+        <field name="name">pos.session.form.cashier.risk</field>
+        <field name="model">pos.session</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_crm_audits" type="object" class="oe_stat_button"
+                        icon="fa-shield" groups="point_of_sale.group_pos_manager"
+                        attrs="{'invisible': [('crm_audit_count', '=', 0)]}">
+                    <field name="crm_audit_count" widget="statinfo" string="Risk Breaches"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

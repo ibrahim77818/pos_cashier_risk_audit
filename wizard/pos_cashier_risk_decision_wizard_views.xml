@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_cashier_risk_decision_wizard_form" model="ir.ui.view">
+        <field name="name">pos.cashier.risk.decision.wizard.form</field>
+        <field name="model">pos.cashier.risk.decision.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Cashier Risk Decision">
+                <div class="alert alert-info" role="alert">
+                    You are deciding on <field name="audit_count" class="oe_inline fw-bold"/> threshold break(s). The decision, your name and the date are recorded and cannot be changed afterwards.
+                </div>
+                <group>
+                    <field name="decision" widget="radio"/>
+                    <field name="review_notes" placeholder="Explain the reason for this decision (optional)"/>
+                </group>
+                <field name="audit_ids" readonly="1" force_save="1">
+                    <tree>
+                        <field name="name"/>
+                        <field name="session_id"/>
+                        <field name="employee_id"/>
+                        <field name="rule"/>
+                        <field name="threshold"/>
+                        <field name="actual_value"/>
+                        <field name="variance_amount" sum="Total"/>
+                        <field name="currency_id" invisible="1"/>
+                    </tree>
+                </field>
+                <footer>
+                    <button name="action_apply" type="object" string="Confirm Decision" class="btn-primary" data-hotkey="q"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

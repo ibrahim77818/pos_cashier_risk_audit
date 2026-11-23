@@ -1,0 +1,790 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_cashier_risk_audit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-23 00:00+0000\n"
+"PO-Revision-Date: 2026-11-23 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: 
+"
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_cashier_risk_audit.py:0
+#, python-format
+msgid "%(label)s of %(amount)s represent %(actual)s%% of %(base)s, above the threshold of %(threshold)s%% (allowed %(allowed)s, exceeded by %(excess)s)."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_cashier_risk_audit.py:0
+#, python-format
+msgid "%(label)s of %(amount)s were recorded while the session had no sales; reported as 100%% against a threshold of %(threshold)s%%."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.res_config_settings_view_form_cashier_risk
+msgid "<span class=\"o_form_label\">Risk Thresholds</span>"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_form
+msgid "<span>%</span>"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.res_config_settings_view_form_cashier_risk
+msgid "A breach is logged when the session value is above a threshold. Set a threshold to 0 to disable its rule."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.constraint,message:pos_cashier_risk_audit.constraint_pos_cashier_risk_audit_session_rule_unique
+msgid "A cashier risk breach is logged only once per session and rule."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_pos_config__crm_cash_diff_threshold
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_res_config_settings__pos_crm_cash_diff_threshold
+msgid "Absolute difference between counted and expected closing cash above which a breach is logged. Requires cash control. Set to 0 to disable this rule."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_tree
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_form
+msgid "Accept"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_cashier_risk_audit.py:0
+msgid "Accept Breach"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields.selection,name:pos_cashier_risk_audit.selection__pos_cashier_risk_decision_wizard__decision__accepted
+msgid "Accept the threshold break"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields.selection,name:pos_cashier_risk_audit.selection__pos_cashier_risk_audit__decision__accepted
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_form
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_search
+msgid "Accepted"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__actual_value
+msgid "Actual Value"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__decision
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_form
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_search
+msgid "Admin Decision"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__allowed_amount
+msgid "Allowed Amount"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields.selection,name:pos_cashier_risk_audit.selection__pos_cashier_risk_audit__rule_kind__amount
+msgid "Amount"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__variance_amount
+msgid "Amount Over Threshold"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_pos_cashier_risk_audit__allowed_amount
+msgid "Amount the threshold allows (for percentage rules: sales base x threshold)."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_form
+msgid "Amounts"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__breach_amount
+msgid "Breach Amount"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__breach_explanation
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_form
+msgid "Breach Explanation"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__rule
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_search
+msgid "Breach Rule"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_decision_wizard__audit_ids
+msgid "Breaches"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_decision_wizard__audit_count
+msgid "Breaches Selected"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_decision_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_form
+msgid "Cash Count"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields.selection,name:pos_cashier_risk_audit.selection__pos_cashier_risk_audit__rule__cash_difference
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__cash_difference
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_search
+msgid "Cash Difference"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_config__crm_cash_diff_threshold
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_res_config_settings__pos_crm_cash_diff_threshold
+msgid "Cash Difference Above"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_pos_cashier_risk_audit__breach_amount
+msgid "Cash difference, refunded, discounted or cashed out amount."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields.selection,name:pos_cashier_risk_audit.selection__pos_cashier_risk_audit__rule__cash_out
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_search
+msgid "Cash Out"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_config__crm_cash_out_threshold
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_res_config_settings__pos_crm_cash_out_threshold
+msgid "Cash Out Above"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_cashier_risk_audit.py:0
+#, python-format
+msgid "Cash taken out of the register (%(amount)s) exceeds the allowed %(threshold)s by %(excess)s."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model,name:pos_cashier_risk_audit.model_pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_tree
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_form
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_pivot
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_search
+#: model:ir.actions.act_window,name:pos_cashier_risk_audit.action_pos_cashier_risk_audit
+#: model:ir.ui.menu,name:pos_cashier_risk_audit.menu_pos_cashier_risk_audit
+msgid "Cashier Risk Audit"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_cashier_risk_audit.py:0
+msgid "Cashier risk audit entries cannot be duplicated."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_cashier_risk_audit.py:0
+msgid "Cashier risk audit figures and decisions cannot be edited directly. Use the Accept / Log as Violation actions."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_session__crm_audit_ids
+msgid "Cashier Risk Breaches"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model,name:pos_cashier_risk_audit.model_pos_cashier_risk_decision_wizard
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_decision_wizard_form
+msgid "Cashier Risk Decision"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_config__crm_enabled
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_res_config_settings__pos_crm_enabled
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.res_config_settings_view_form_cashier_risk
+msgid "Cashier Risk Monitor"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_session.py:0
+msgid "Cashier Risk Monitor could not evaluate this session. Please review it manually."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_config.py:0
+#, python-format
+msgid "Cashier Risk Monitor thresholds cannot be negative (%s)."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_session.py:0
+#, python-format
+msgid "Cashier Risk Monitor: %(count)s threshold(s) breached (%(rules)s). Pending manager review."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.res_config_settings_view_form_cashier_risk
+msgid "Check cashier risk thresholds when a session of this Point of Sale closes and log every breach for manager review."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__company_id
+msgid "Company"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_pos_cashier_risk_audit__threshold
+msgid "Configured threshold: an amount for cash rules, a percentage of sales for refund and discount rules."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_decision_wizard_form
+msgid "Confirm Decision"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__counted_cash
+msgid "Counted Cash"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_cashier_risk_audit.py:0
+#, python-format
+msgid "Counted cash %(counted)s against expected %(expected)s: a difference of %(diff)s exceeds the allowed %(threshold)s."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_pos_cashier_risk_audit__cash_difference
+msgid "Counted cash minus expected cash at closing."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__create_uid
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_decision_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__create_date
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_decision_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__decision_user_id
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_search
+msgid "Decided By"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_cashier_risk_audit.py:0
+msgid "Decided cashier risk audit entries are kept for auditability and cannot be deleted."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__decision_date
+msgid "Decided On"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_decision_wizard__decision
+msgid "Decision"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_cashier_risk_audit.py:0
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_search
+msgid "Discounts"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields.selection,name:pos_cashier_risk_audit.selection__pos_cashier_risk_audit__rule__discount
+msgid "Discounts (% of sales)"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_config__crm_discount_pct_threshold
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_res_config_settings__pos_crm_discount_pct_threshold
+msgid "Discounts Above (% of sales)"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_pos_config__crm_discount_pct_threshold
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_res_config_settings__pos_crm_discount_pct_threshold
+msgid "Discounts granted (line discounts, global discounts and loyalty rewards) as a percentage of sales before discounts above which a breach is logged. Set to 0 to disable this rule."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__display_name
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_decision_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_pos_cashier_risk_audit__employee_id
+msgid "Employee held accountable for this breach: the cashier who processed most of the refunds/discounts for those rules, otherwise the session's main cashier."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.actions.act_window,help:pos_cashier_risk_audit.action_pos_cashier_risk_audit
+msgid "Enable the Cashier Risk Monitor on a Point of Sale. Every threshold breached when a session closes is logged here for an Accept or Violation decision."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_pos_config__crm_enabled
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_res_config_settings__pos_crm_enabled
+msgid "Evaluate the cashier risk thresholds when a session of this Point of Sale is closed and log every breach for manager review."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__evaluation_date
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_search
+msgid "Evaluation Date"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_search
+msgid "Evaluation Month"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__expected_cash
+msgid "Expected Cash"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_decision_wizard_form
+msgid "Explain the reason for this decision (optional)"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_search
+msgid "Group By"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_pos_cashier_risk_audit__variance_pct
+msgid "How far the actual value exceeds the threshold, relative to the threshold."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__id
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_decision_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_pos_cashier_risk_audit__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_pos_cashier_risk_audit__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_cashier_risk_audit.py:0
+msgid "Invalid cashier risk decision."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit____last_update
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_decision_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__write_uid
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_decision_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__write_date
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_decision_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_cashier_risk_audit.py:0
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_tree
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_form
+msgid "Log as Violation"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields.selection,name:pos_cashier_risk_audit.selection__pos_cashier_risk_decision_wizard__decision__violation
+msgid "Log it as a violation"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_form
+msgid "Manager review notes..."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_pos_cashier_risk_audit__actual_value
+msgid "Measured value compared with the threshold (amount or percentage)."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_search
+msgid "Multi-Rule Sessions"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.actions.act_window,help:pos_cashier_risk_audit.action_pos_cashier_risk_audit
+msgid "No cashier risk breach yet"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__zero_sales
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_search
+msgid "No Sales Base"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_pos_cashier_risk_audit__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_pos_cashier_risk_audit__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_cashier_risk_audit.py:0
+msgid "Only administrators can reopen a decided breach."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_cashier_risk_audit.py:0
+msgid "Only Point of Sale managers can review cashier risk breaches."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__variance_pct
+msgid "Over Threshold (%)"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__pending_count
+msgid "Pending"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields.selection,name:pos_cashier_risk_audit.selection__pos_cashier_risk_audit__decision__pending
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_search
+msgid "Pending Review"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields.selection,name:pos_cashier_risk_audit.selection__pos_cashier_risk_audit__rule_kind__percent
+msgid "Percentage"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__config_id
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_search
+msgid "Point of Sale"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_account_bank_statement_line__crm_is_pos_cash_move
+msgid "POS Cash In/Out"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__name
+msgid "Reference"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_config.py:0
+#, python-format
+msgid "Refund and discount thresholds are percentages of sales and must be between 0 and 100 (%s)."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_pos_config__crm_refund_pct_threshold
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_res_config_settings__pos_crm_refund_pct_threshold
+msgid "Refunded amount as a percentage of session sales above which a breach is logged. Set to 0 to disable this rule."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_cashier_risk_audit.py:0
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_search
+msgid "Refunds"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields.selection,name:pos_cashier_risk_audit.selection__pos_cashier_risk_audit__rule__refund
+msgid "Refunds (% of sales)"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_config__crm_refund_pct_threshold
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_res_config_settings__pos_crm_refund_pct_threshold
+msgid "Refunds Above (% of sales)"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_form
+msgid "Reopen Review"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_form
+msgid "Reopen this decided breach for a new review?"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_form
+msgid "Responsibility"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__employee_id
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_search
+msgid "Responsible Employee"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__review_notes
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_decision_wizard__review_notes
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_form
+msgid "Review Notes"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_session__crm_audit_count
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_session_form_cashier_risk
+msgid "Risk Breaches"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__session_breach_count
+msgid "Rules Breached in Session"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__base_amount
+msgid "Sales Base"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_pos_cashier_risk_audit__base_amount
+msgid "Sales figure used as the base of percentage rules."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_cashier_risk_audit.py:0
+#: code:addons/pos_cashier_risk_audit/wizard/pos_cashier_risk_decision_wizard.py:0
+msgid "Select at least one breach pending review."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__session_id
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_form
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_search
+msgid "Session"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__cashier_employee_ids
+msgid "Session Cashiers"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__session_stop_at
+msgid "Session Closed On"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__session_start_at
+msgid "Session Opened On"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__order_count
+msgid "Session Orders"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__user_id
+msgid "Session Responsible"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_account_bank_statement_line__crm_is_pos_cash_move
+msgid "Set on statement lines created by the POS Cash In/Out button; used by the Cashier Risk Monitor to total cash outs."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_config.py:0
+#, python-format
+msgid "The Cashier Risk Monitor is enabled on %s but every threshold is 0. Set at least one threshold or disable the monitor."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_pos_cashier_risk_audit__zero_sales
+msgid "The session had no sales to compute the percentage against; the breach is reported at 100%."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: code:addons/pos_cashier_risk_audit/models/pos_cashier_risk_audit.py:0
+#, python-format
+msgid "These breaches were already decided and cannot be decided again: %s"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__threshold
+msgid "Threshold"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_decision_wizard_form
+msgid "threshold break(s). The decision, your name and the date are recorded and cannot be changed afterwards."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__rule_kind
+msgid "Threshold Type"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_form
+msgid "Threshold vs. Actual"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_decision_wizard_form
+msgid "Total"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_tree
+msgid "Total Breach Amount"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_pos_config__crm_cash_out_threshold
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_res_config_settings__pos_crm_cash_out_threshold
+msgid "Total manual cash taken out of the register during the session above which a breach is logged. Set to 0 to disable this rule."
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_tree
+msgid "Total Over Threshold"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields.selection,name:pos_cashier_risk_audit.selection__pos_cashier_risk_audit__decision__violation
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_form
+msgid "Violation"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__violation_count
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_audit_search
+msgid "Violations"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,help:pos_cashier_risk_audit.field_pos_cashier_risk_audit__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model:ir.model.fields,field_description:pos_cashier_risk_audit.field_pos_cashier_risk_audit__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: pos_cashier_risk_audit
+#: model_terms:ir.ui.view,arch_db:pos_cashier_risk_audit.view_pos_cashier_risk_decision_wizard_form
+msgid "You are deciding on"
+msgstr ""
