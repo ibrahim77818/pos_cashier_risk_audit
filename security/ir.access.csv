@@ -1,0 +1,5 @@
+id,name,model_id,group_id/id,operation,domain
+access_pos_cashier_risk_audit_manager,pos.cashier.risk.audit manager,pos.cashier.risk.audit,point_of_sale.group_pos_manager,ru,
+access_pos_cashier_risk_audit_system,pos.cashier.risk.audit system,pos.cashier.risk.audit,base.group_system,crud,
+access_pos_cashier_risk_decision_wizard_manager,pos.cashier.risk.decision.wizard manager,pos.cashier.risk.decision.wizard,point_of_sale.group_pos_manager,crud,
+rule_pos_cashier_risk_audit_company,Cashier Risk Audit: multi-company,pos.cashier.risk.audit,,crud,"[('company_id', 'in', company_ids)]"

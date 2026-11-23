@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_cashier_risk" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.pos.cashier.risk</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_accounting_section']" position="after">
+                <block title="Cashier Risk Monitor" id="pos_cashier_risk_monitor_section">
+                    <setting id="pos_crm_enabled_setting" string="Cashier Risk Monitor"
+                             help="Check cashier risk thresholds when a session of this Point of Sale closes and log every breach for manager review.">
+                        <field name="pos_crm_enabled"/>
+                    </setting>
+                    <setting id="pos_crm_thresholds_setting" string="Risk Thresholds"
+                             help="A breach is logged when the session value is above a threshold. Set a threshold to 0 to disable its rule."
+                             invisible="not pos_crm_enabled">
+                        <div class="content-group mt16">
+                            <div class="row mt8">
+                                <label for="pos_crm_cash_diff_threshold" class="col-lg-7 o_light_label"/>
+                                <field name="pos_crm_cash_diff_threshold" class="col-lg-4"/>
+                            </div>
+                            <div class="row mt8">
+                                <label for="pos_crm_refund_pct_threshold" class="col-lg-7 o_light_label"/>
+                                <field name="pos_crm_refund_pct_threshold" class="col-lg-3"/>
+                                <span class="col-auto">%</span>
+                            </div>
+                            <div class="row mt8">
+                                <label for="pos_crm_discount_pct_threshold" class="col-lg-7 o_light_label"/>
+                                <field name="pos_crm_discount_pct_threshold" class="col-lg-3"/>
+                                <span class="col-auto">%</span>
+                            </div>
+                            <div class="row mt8">
+                                <label for="pos_crm_cash_out_threshold" class="col-lg-7 o_light_label"/>
+                                <field name="pos_crm_cash_out_threshold" class="col-lg-4"/>
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
