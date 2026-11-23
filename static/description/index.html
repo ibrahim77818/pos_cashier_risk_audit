@@ -1,0 +1,206 @@
+<!-- Odoo Apps description page for pos_cashier_risk_audit (Odoo 19.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
+<section style="max-width:1120px;margin:0 auto;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#2b2b33;">
+
+<!-- ============================== HERO ============================== -->
+<div style="background:linear-gradient(120deg,#017E84 0%,#3d6b78 45%,#714B67 100%);border-radius:18px;padding:48px 40px 40px;color:#ffffff;margin-top:12px;">
+  <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.85;margin-bottom:10px;">Point of Sale &middot; Cash Control &middot; Audit</div>
+  <h1 style="font-size:40px;line-height:1.15;font-weight:700;margin:0 0 14px;color:#ffffff;">POS Cashier Risk Audit</h1>
+  <p style="font-size:19px;line-height:1.55;max-width:760px;margin:0 0 24px;color:#ffffff;opacity:.95;">Every time a POS session closes, its cash difference, refunds, discounts and cash outs are checked against your limits. Each breach is logged against the responsible cashier, and a manager then accepts it or records it as a violation.</p>
+  <div>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 19.0</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Community &amp; Enterprise</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">English &amp; Arabic</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">12 automated tests</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Technical name: pos_cashier_risk_audit</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">LGPL-3</span>
+  </div>
+</div>
+
+<!-- ============================== KEY NUMBERS ============================== -->
+<div style="display:flex;flex-wrap:wrap;margin:28px -8px 8px;">
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">4 risk rules</div><div style="font-size:15px;color:#555;">Cash difference, refunds %, discounts % and cash out, each with its own limit for every POS</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">0 clicks</div><div style="font-size:15px;color:#555;">Evaluation runs automatically when the cashier closes the session</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">2 decisions</div><div style="font-size:15px;color:#555;"><b>Accept</b> or <b>Log as Violation</b>, with who decided, when and why</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">1 per rule</div><div style="font-size:15px;color:#555;">One audit entry per session and rule, never duplicated and frozen once decided</div></div>
+</div>
+
+<!-- ============================== WHY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Why this module</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Odoo 19 records what happened in a session, but nothing tells a manager that a session went beyond what the store tolerates.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -10px;">
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #f1d6d6;background:#fff8f8;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 19</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li>The closing <b>cash difference</b> is posted to the loss/profit account, with <b>no limit and no alert</b>.</li>
+      <li><b>Refunds</b> are buried in order history. There is <b>no ratio against the session&rsquo;s sales</b>.</li>
+      <li>Line discounts, <b>global discounts</b> and loyalty rewards are <b>never totalled</b> per session.</li>
+      <li>Cash taken out with <b>Cash In/Out</b> is just a statement line that nobody reviews.</li>
+      <li>Nothing ties a risky session to the <b>cashier</b> who caused it.</li>
+      <li>There is <b>no review trail</b> showing whether a manager looked at it and what was decided.</li>
+    </ul>
+  </div>
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #cfe7e7;background:#f4fbfb;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#017E84;margin:0 0 12px;">With this module</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li><b>Cash Difference Above</b>: any |counted &minus; expected| over the limit is logged.</li>
+      <li><b>Refunds Above (% of sales)</b>: refunds are compared with the session&rsquo;s net sales.</li>
+      <li><b>Discounts Above (% of sales)</b>: line, global and loyalty discounts against sales before discount.</li>
+      <li><b>Cash Out Above</b>: only real Cash In/Out cash outs count, never counting differences.</li>
+      <li>Each breach names the <b>Responsible Employee</b> (pos_hr cashier or user&rsquo;s employee).</li>
+      <li><b>Accept</b> or <b>Log as Violation</b> with notes. Changes are tracked in the chatter.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================== HOW IT WORKS ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">How it works</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Four steps, and the cashier sees no change to the closing screen.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;">
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">1</div><div style="font-weight:700;margin-bottom:4px;">Configure</div><div style="font-size:14px;color:#555;">Enable <b>Cashier Risk Monitor</b> on a Point of Sale and set the four limits. A limit of 0 turns that rule off.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">2</div><div style="font-weight:700;margin-bottom:4px;">Sell as usual</div><div style="font-size:14px;color:#555;">Cashiers sell, refund, discount and use Cash In/Out exactly as before.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">3</div><div style="font-weight:700;margin-bottom:4px;">Close &amp; evaluate</div><div style="font-size:14px;color:#555;">When the session closes, figures are measured before posting. Each breached rule creates an audit entry and a note on the session.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #cfe7e7;background:#f4fbfb;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#017E84;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">4</div><div style="font-weight:700;margin-bottom:4px;">Review</div><div style="font-size:14px;color:#555;">Managers open <b>Reporting &rsaquo; Cashier Risk Audit</b>, then accept the breach or log it as a violation.</div></div>
+</div>
+
+<!-- ============================== FEATURES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Features</h2>
+<p style="font-size:16px;color:#555;margin:0 0 4px;">The screenshots come from a demo <b>Riyadh Boutique</b> POS with three cashiers (Audrey Peterson, Doris Cole, Abigail Peterson) and four closed sessions. One of those sessions was clean and logged nothing.</p>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Menus</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Where to find it</h3>
+  <table style="width:100%;border-collapse:collapse;font-size:15px;">
+    <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Menu</th><th style="text-align:left;padding:10px 14px;">What you do there</th></tr></thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Point of Sale &rsaquo; Configuration &rsaquo; Settings &rsaquo; <b>Cashier Risk Monitor</b></td><td style="padding:10px 14px;">Enable the monitor for the selected POS and set its limits</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Point of Sale &rsaquo; Reporting &rsaquo; <b>Cashier Risk Audit</b></td><td style="padding:10px 14px;">List, pivot and form views of every breach, with Accept / Log as Violation</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Point of Sale &rsaquo; Orders &rsaquo; Sessions &rsaquo; <b>Risk Breaches</b> button</td><td style="padding:10px 14px;">Jump from a closed session to its breaches</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 1</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Four limits for each Point of Sale, checked when you save</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Tick <b>Cashier Risk Monitor</b>, which is off by default, and set <b>Cash Difference Above</b>, <b>Refunds Above (% of sales)</b>, <b>Discounts Above (% of sales)</b> and <b>Cash Out Above</b>. Negative values, percentages over 100 and &ldquo;enabled with every limit at 0&rdquo; are rejected with a clear message.</p>
+  <img src="cra_01_settings.png" alt="Cashier Risk Monitor settings with the four thresholds" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 2</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Every breach in one audit list</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Each row is one breached rule in one session. It shows the <b>Threshold</b>, the <b>Actual Value</b>, <b>Over Threshold (%)</b>, the <b>Breach Amount</b> and the money <b>Amount Over Threshold</b>. Colours follow the <b>Admin Decision</b>: amber for pending, green for accepted, red for violation. Totals sum across rules because every rule is converted to money.</p>
+  <img src="cra_02_audit_list.png" alt="Cashier Risk Audit list with pending, accepted and violation entries" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 3</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Pivot: which cashier, which rule, how much</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">By default, rows are <b>Responsible Employee</b> and columns are <b>Breach Rule</b>. The measures are <b>Amount Over Threshold</b> and a <b>Violations</b> count, with <b>Breach Amount</b>, <b>Allowed Amount</b> and more one click away. Use <b>Insert in Spreadsheet</b> (Enterprise) or export to Excel.</p>
+  <img src="cra_03_pivot.png" alt="Pivot of amount over threshold and violations by employee and rule" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 4</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">A complete, read-only record of each breach</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The form shows the session, its opening and closing times, the <b>Responsible Employee</b>, all <b>Session Cashiers</b> and how many <b>Rules Breached in Session</b>. It also shows the threshold against the actual value, the sales base, the allowed amount, and the expected and counted cash. A ribbon shows the decision.</p>
+  <img src="cra_04_form_violation.png" alt="Audit entry form for a refund breach marked as violation" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="cra_05_form_decision_chatter.png" alt="Breach explanation, review notes and tracked decision in the chatter" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <div style="font-size:13px;color:#777;margin:6px 0 0;">The <b>Breach Explanation</b> is written in the reader&rsquo;s language. The decision, the person who made it, the date and the notes are tracked in the chatter.</div>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 5</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Accept or Log as Violation, one entry or many at once</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Select pending entries in the list and click <b>Accept</b> or <b>Log as Violation</b>. The decision window lists the selected breaches and the total amount over threshold, and takes optional <b>Review Notes</b>. Only entries still <b>Pending Review</b> can be decided, and a decision cannot be changed afterwards. Administrators can <b>Reopen Review</b>.</p>
+  <img src="cra_06_bulk_decision.png" alt="Two pending breaches selected with Accept and Log as Violation buttons" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="cra_07_decision_wizard.png" alt="Log as Violation decision window with review notes" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 6</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Visible on the session itself</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Closed sessions get a <b>Risk Breaches</b> button, visible to managers only. The chatter receives a note listing the rules that were breached.</p>
+  <img src="cra_08_session_smart_button.png" alt="POS session with Risk Breaches smart button and chatter note" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 7</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Filters and group-bys made for audits</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Filters: <b>Pending Review</b>, <b>Accepted</b>, <b>Violations</b>, one per rule, <b>Multi-Rule Sessions</b>, <b>No Sales Base</b> and <b>Evaluation Date</b>. Group by <b>Session</b>, <b>Point of Sale</b>, <b>Responsible Employee</b>, <b>Breach Rule</b>, <b>Admin Decision</b>, <b>Decided By</b> or <b>Evaluation Month</b>.</p>
+  <img src="cra_09_filters_groupby.png" alt="Audit list grouped by responsible employee with the filters menu open" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<!-- ============================== RULES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">How each rule is measured</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">All sales figures include tax and are in the session currency. A breach means the value is strictly above the limit.</p>
+<table style="width:100%;border-collapse:collapse;font-size:15px;">
+  <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Rule</th><th style="text-align:left;padding:10px 14px;">Measured value</th><th style="text-align:left;padding:10px 14px;">Responsible employee</th></tr></thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;"><b>Cash Difference</b></td><td style="padding:10px 14px;">|counted cash &minus; expected cash| at closing (POS with cash control)</td><td style="padding:10px 14px;">Session&rsquo;s main cashier (most orders)</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;"><b>Refunds (% of sales)</b></td><td style="padding:10px 14px;">Refunded lines &divide; net sale lines &times; 100</td><td style="padding:10px 14px;">Cashier with the largest refunded amount</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;"><b>Discounts (% of sales)</b></td><td style="padding:10px 14px;">(line discounts + global discount + loyalty rewards) &divide; sales before discount &times; 100</td><td style="padding:10px 14px;">Cashier with the largest discounted amount</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;"><b>Cash Out</b></td><td style="padding:10px 14px;">Sum of cash outs made with the POS <b>Cash In/Out</b> button</td><td style="padding:10px 14px;">Session&rsquo;s main cashier</td></tr>
+  </tbody>
+</table>
+<div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Worked example (from the screenshots):</b> session POS/00022 sold 3,441.00&nbsp;SR and refunded 969.00&nbsp;SR, so refunds are 28.16% of sales. With a limit of 8%, the allowed amount is 3,441.00 &times; 8% = 275.28&nbsp;SR. <b>Amount Over Threshold</b> is therefore 969.00 &minus; 275.28 = 693.72&nbsp;SR, and <b>Over Threshold (%)</b> is (28.16 &minus; 8) &divide; 8 = 252%.</div>
+<div style="margin-top:16px;">
+  <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fef3c7;color:#b45309;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Pending Review</span> created automatically at closing, waiting for a manager</div>
+  <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Accepted</span> the threshold break is justified (for example, a supplier invoice for a cash out)</div>
+  <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fee2e2;color:#b91c1c;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Violation</span> recorded against the cashier and counted in the <b>Violations</b> measure</div>
+</div>
+
+<!-- ============================== CORNER CASES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Built for real-world corner cases</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Each case is handled in the module and covered by its automated tests.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;font-size:15px;line-height:1.55;">
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Refunds with no sales</b><br/><span style="color:#555;">There is no division by zero. The breach is always logged, reported at 100% and flagged <b>No Sales Base</b>.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Counting differences are not cash outs</b><br/><span style="color:#555;">Opening and closing differences that Odoo posts are ignored. Only lines created by the POS <b>Cash In/Out</b> button are counted.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>100% line discounts</b><br/><span style="color:#555;">Discounts are measured against sales before discount, so a free item is still caught.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Global discounts and loyalty</b><br/><span style="color:#555;">Global discount lines (pos_discount) and loyalty reward lines (pos_loyalty) are included when those apps are installed.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>With or without pos_hr</b><br/><span style="color:#555;">If employees log into the POS (pos_hr), the employee on each order is used. Otherwise the employee linked to the order&rsquo;s user is used.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Closing is never blocked</b><br/><span style="color:#555;">The audit runs in its own savepoint. If it fails, the session still closes and a note asks for a manual review.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>No duplicates, no tampering</b><br/><span style="color:#555;">There can be only one entry per session and rule. A re-evaluation refreshes pending entries only. Figures cannot be edited, entries cannot be duplicated, and decided entries cannot be deleted.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>No cash control</b><br/><span style="color:#555;">On a POS without a cash payment method, the cash difference rule is skipped and the other rules still apply.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Works beside discount limits</b><br/><span style="color:#555;">It works alongside modules that block discounts at the till: they stop the action, and this module audits what still went through.</span></div>
+</div>
+
+<!-- ============================== SECURITY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Security</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Cashiers never see their own audits. The entries are created by the system at closing.</p>
+<table style="width:100%;border-collapse:collapse;font-size:15px;">
+  <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Who</th><th style="text-align:left;padding:10px 14px;">Sees / can do</th></tr></thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Point of Sale / User (cashier)</td><td style="padding:10px 14px;">No access to the report, the menu or the session button. Closing still creates the entries.</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Point of Sale / Administrator</td><td style="padding:10px 14px;">Reads all entries, adds review notes, and can <b>Accept</b> or <b>Log as Violation</b>. Cannot create or delete entries.</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Settings (system administrator)</td><td style="padding:10px 14px;">Everything above, plus <b>Reopen Review</b> and deleting entries that are still pending.</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Multi-company</td><td style="padding:10px 14px;">A record rule limits entries to the user&rsquo;s allowed companies.</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== TECHNICAL ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Technical details</h2>
+<table style="width:100%;border-collapse:collapse;font-size:15px;">
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Odoo version</td><td style="padding:10px 14px;">19.0, Community and Enterprise</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Depends on</td><td style="padding:10px 14px;"><code>point_of_sale</code>, <code>hr</code> (works with <code>pos_hr</code>, <code>pos_discount</code>, <code>pos_loyalty</code> when installed)</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Python dependency</td><td style="padding:10px 14px;">None</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Menus</td><td style="padding:10px 14px;">Point of Sale &rsaquo; Reporting &rsaquo; Cashier Risk Audit</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Settings</td><td style="padding:10px 14px;">Point of Sale &rsaquo; Configuration &rsaquo; Settings &rsaquo; Cashier Risk Monitor (per POS)</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Models</td><td style="padding:10px 14px;">New: <code>pos.cashier.risk.audit</code>, <code>pos.cashier.risk.decision.wizard</code>. Extended: <code>pos.config</code>, <code>res.config.settings</code>, <code>pos.session</code>, <code>account.bank.statement.line</code></td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Languages</td><td style="padding:10px 14px;">English and Arabic (full <code>i18n/ar.po</code>), plus a <code>.pot</code> template</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Automated tests</td><td style="padding:10px 14px;">12 <code>TransactionCase</code> tests covering the default-off setting, threshold validation, each of the four rules, zero sales, responsible employee, multi-rule sessions and duplicates, decisions and access rights, a real session close, and list/pivot totals</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">License</td><td style="padding:10px 14px;">LGPL-3</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== CONTACT ============================== -->
+<div style="margin:52px 0 40px;background:linear-gradient(120deg,#714B67 0%,#017E84 100%);border-radius:18px;padding:36px 40px;color:#fff;">
+  <h2 style="font-size:26px;font-weight:700;margin:0 0 8px;color:#fff;">Support &amp; customization</h2>
+  <p style="font-size:16px;line-height:1.6;margin:0 0 20px;color:#fff;opacity:.95;">Questions, a demo, or an adaptation to your own process? Get in touch.</p>
+  <a href="mailto:ibrahim.yahiah@gmail.com" style="display:inline-block;background:#fff;color:#714B67;font-weight:700;text-decoration:none;border-radius:8px;padding:12px 22px;margin:0 12px 10px 0;">&#9993;  ibrahim.yahiah@gmail.com</a>
+  <a href="https://www.linkedin.com/in/ibrahim-yahia" target="_blank" rel="noopener" style="display:inline-block;border:2px solid #fff;color:#fff;font-weight:700;text-decoration:none;border-radius:8px;padding:10px 22px;margin:0 0 10px 0;">LinkedIn: Ibrahim Yahia</a>
+  <p style="font-size:13px;margin:14px 0 0;opacity:.8;color:#fff;">Author: Ibrahim Yahia &middot; License: LGPL-3</p>
+</div>
+
+</section>
